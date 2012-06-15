@@ -1,0 +1,7 @@
+== Version History ==
+
+x.x:
+
+1.1 (06/15/2012):
+
+ - Added context-aware add-content link
