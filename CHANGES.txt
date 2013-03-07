@@ -2,6 +2,9 @@
 
 x.x:
 
+1.5 (03/07/2013):
+ - fixes wsod for not-logged-in users when used as default widget on a profile unvisited by someone with write access
+
 1.4 (01/21/2013):
  - removes 'all' context
 

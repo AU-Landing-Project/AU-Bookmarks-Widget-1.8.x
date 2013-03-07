@@ -1,6 +1,17 @@
 <?php
 
 $widget = $vars['entity'];
+if(empty($widget->eligo_type) || empty($widget->eligo_subtype)){
+  $ia = elgg_set_ignore_access(true);
+  $widget->eligo_type = 'object';
+  $widget->eligo_subtype = 'bookmarks';
+  
+  // if this is an existing widget from the old 1.7 version
+  // we provide an upgrade path for settings... hopefully  :)
+  // this can be removed to save a few cycles if it's a new installation
+  $widget = eligo_upgrade_old_widget($widget);
+  elgg_set_ignore_access($ia);
+}
 
 // add in a create content link in certain contexts
 $owner = elgg_get_page_owner_entity();

@@ -4,6 +4,7 @@
 // used in elgg_get_entities()
 $widget = $vars['entity'];
 if(empty($widget->eligo_type) || empty($widget->eligo_subtype)){
+  $ia = elgg_set_ignore_access(true);
   $widget->eligo_type = 'object';
   $widget->eligo_subtype = 'bookmarks';
   
@@ -11,6 +12,7 @@ if(empty($widget->eligo_type) || empty($widget->eligo_subtype)){
   // we provide an upgrade path for settings... hopefully  :)
   // this can be removed to save a few cycles if it's a new installation
   $widget = eligo_upgrade_old_widget($widget);
+  elgg_set_ignore_access($ia);
 }
 
 // use sort by controls
